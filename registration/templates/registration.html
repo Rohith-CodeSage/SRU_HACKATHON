@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYUSH Startup Registration Portal</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>AYUSH Portal</h1>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'home' %}" class="{% if section == 'home' %}active{% endif %}">Home</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'dashboard' %}" class="{% if section == 'dashboard' %}active{% endif %}">Dashboard</a>
+                <a href="{% url 'application' %}" class="{% if section == 'application' %}active{% endif %}">New Application</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="{% if section == 'login' %}active{% endif %}">Login</a>
+                <a href="{% url 'register' %}" class="{% if section == 'register' %}active{% endif %}">Register</a>
+            {% endif %}
+            <a href="{% url 'faq' %}" class="{% if section == 'faq' %}active{% endif %}">Support</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if section == 'home' %}
+            <div class="home-section">
+                <h1>Welcome to AYUSH Startup Registration Portal</h1>
+                <div class="features">
+                    <div class="feature">
+                        <h3>Ayurveda</h3>
+                        <p>Traditional Indian system of medicine</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Yoga & Naturopathy</h3>
+                        <p>Mind-body practices for wellness</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Unani</h3>
+                        <p>Traditional Greco-Arabic system of medicine</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Siddha</h3>
+                        <p>Ancient Tamil system of medicine</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Homoeopathy</h3>
+                        <p>Medical system based on "like cures like"</p>
+                    </div>
+                </div>
+                <div class="cta">
+                    <p>Register your AYUSH startup today and join the growing ecosystem!</p>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'application' %}" class="btn primary">Apply Now</a>
+                    {% else %}
+                        <a href="{% url 'register' %}" class="btn primary">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+
+        {% elif section == 'register' %}
+            <div class="auth-section">
+                <h2>Register</h2>
+                <form method="post" class="form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.username.id_for_label }}">Username</label>
+                        {{ form.username }}
+                        {{ form.username.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.email.id_for_label }}">Email</label>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.password1.id_for_label }}">Password</label>
+                        {{ form.password1 }}
+                        {{ form.password1.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+                        {{ form.password2 }}
+                        {{ form.password2.errors }}
+                    </div>
+                    <button type="submit" class="btn primary">Register</button>
+                </form>
+                <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+            </div>
+
+        {% elif section == 'login' %}
+            <div class="auth-section">
+                <h2>Login</h2>
+                <form method="post" class="form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.username.id_for_label }}">Username</label>
+                        {{ form.username }}
+                        {{ form.username.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.password.id_for_label }}">Password</label>
+                        {{ form.password }}
+                        {{ form.password.errors }}
+                    </div>
+                    <button type="submit" class="btn primary">Login</button>
+                </form>
+                <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+            </div>
+
+        {% elif section == 'dashboard' %}
+            <div class="dashboard-section">
+                <h2>Your Applications</h2>
+                {% if applications %}
+                    <div class="applications">
+                        {% for app in applications %}
+                            <div class="application-card" id="app-{{ app.id }}">
+                                <div class="app-header">
+                                    <h3>{{ app.startup_name }}</h3>
+                                    <span class="status {{ app.status }}">{{ app.status|title }}</span>
+                                </div>
+                                <div class="app-details">
+                                    <p><strong>Category:</strong> {{ app.get_category_display }}</p>
+                                    <p><strong>Founder:</strong> {{ app.founder_name }}</p>
+                                    <p><strong>Submitted:</strong> {{ app.created_at|date:"M d, Y" }}</p>
+                                    <p><strong>Description:</strong> {{ app.description|truncatewords:20 }}</p>
+                                    {% if app.document %}
+                                        <p><strong>Document:</strong> <a href="{{ app.document.url }}" target="_blank">View Document</a></p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="no-applications">
+                        <p>You haven't submitted any applications yet.</p>
+                        <a href="{% url 'application' %}" class="btn primary">Submit New Application</a>
+                    </div>
+                {% endif %}
+            </div>
+
+        {% elif section == 'application' %}
+            <div class="application-section">
+                <h2>Submit Startup Application</h2>
+                <form method="post" class="form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.startup_name.id_for_label }}">Startup Name</label>
+                        {{ form.startup_name }}
+                        {{ form.startup_name.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.category.id_for_label }}">Category</label>
+                        {{ form.category }}
+                        {{ form.category.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.founder_name.id_for_label }}">Founder Name</label>
+                        {{ form.founder_name }}
+                        {{ form.founder_name.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.description.id_for_label }}">Description</label>
+                        {{ form.description }}
+                        {{ form.description.errors }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.document.id_for_label }}">Document (PDF only)</label>
+                        {{ form.document }}
+                        {{ form.document.errors }}
+                    </div>
+                    <button type="submit" class="btn primary">Submit Application</button>
+                </form>
+            </div>
+
+        {% elif section == 'faq' %}
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">What is AYUSH?</div>
+                        <div class="faq-answer">AYUSH stands for Ayurveda, Yoga & Naturopathy, Unani, Siddha, and Homoeopathy. These are traditional systems of medicine in India.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">How long does the application review take?</div>
+                        <div class="faq-answer">Applications are typically reviewed within 7-10 business days. You can check the status on your dashboard.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">What documents are required for registration?</div>
+                        <div class="faq-answer">For this portal, we just need one PDF document containing your business plan or relevant documentation.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Can I edit my application after submission?</div>
+                        <div class="faq-answer">Currently, you cannot edit applications after submission. Please ensure all details are correct before submitting.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">How do I know if my application is approved?</div>
+                        <div class="faq-answer">You can check the status on your dashboard. You will also receive an email notification when your status changes.</div>
+                    </div>
+                </div>
+                <div class="contact-support">
+                    <h3>Need more help?</h3>
+                    <p>Contact our support team at <strong>support@ayushportal.example.com</strong></p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 AYUSH Startup Registration Portal</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="{% url 'faq' %}">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
