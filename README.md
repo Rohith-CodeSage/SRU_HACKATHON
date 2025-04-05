@@ -1,8 +1,8 @@
 # AYUSH Startup Registration Portal
 
-# Team Details
+## 👥 Team Details
 
-## Team Members
+### Team Members
 
 | Name | ID Number |
 |------|-----------|
@@ -12,17 +12,37 @@
 | Rushindhra | 2303A52199 |
 | Ganesh | 2303A52356 |
 
-Demo
-Watch our project demonstration video to see the application in action:
-[Watch the Demo](https://github.com/Rohith-CodeSage/SRU_HACKATHON/blob/main/ROHITH_2198.mp4)
+### About Our Team
 
-
-A comprehensive web application built on Django to facilitate the registration and management of startups in the AYUSH (Ayurveda, Yoga & Naturopathy, Unani, Siddha, and Homoeopathy) sector. This portal streamlines the application process for entrepreneurs and provides a centralized platform for tracking applications.
+We are a group of dedicated students collaborating on projects together. Each member brings unique skills and perspectives to the team.
 
 ![AYUSH Portal](https://via.placeholder.com/800x400?text=AYUSH+Portal)
 
-## Features
+A comprehensive web application built on Django to facilitate the registration and management of startups in the AYUSH (Ayurveda, Yoga & Naturopathy, Unani, Siddha, and Homoeopathy) sector. This portal streamlines the application process for entrepreneurs and provides a centralized platform for tracking applications.
 
+## 📋 Table of Contents
+- [Demo](#demo)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation & Setup](#installation--setup)
+- [Project Structure](#project-structure)
+- [User Journey](#user-journey)
+- [Administration](#administration)
+- [Customization](#customization)
+- [Security Considerations](#security-considerations)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Code of Conduct](#code-of-conduct)
+
+## 🎬 Demo
+Watch our project demonstration video to see the application in action:
+
+https://github.com/Rohith-CodeSage/SRU_HACKATHON/assets/USERID/ROHITH_2198.mp4
+
+*Note: Replace "USERID" with your actual GitHub user ID number to make the video playable directly in the README*
+
+## ✨ Features
 - **User Authentication System**: Secure registration and login functionality for entrepreneurs
 - **Startup Application Submission**: Easy-to-use form for submitting new AYUSH startup applications
 - **Application Dashboard**: Track the status of submitted applications (Pending, Approved, Rejected)
@@ -30,19 +50,18 @@ A comprehensive web application built on Django to facilitate the registration a
 - **Responsive Design**: Mobile-friendly interface that works across devices
 - **Category-based Classification**: Organize startups based on different AYUSH categories
 
-## Tech Stack
-
+## 🛠️ Tech Stack
 - **Backend**: Django 5.2
 - **Frontend**: HTML, CSS, JavaScript
 - **Database**: SQLite (default, configurable)
 - **Authentication**: Django's built-in authentication system
 - **File Storage**: Local storage for uploaded documents
 
-## Installation & Setup
+## 🚀 Installation & Setup
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/SRU_HACKATHON.git
+   git clone https://github.com/Rohith-CodeSage/SRU_HACKATHON.git
    cd SRU_HACKATHON
    ```
 
@@ -74,7 +93,7 @@ A comprehensive web application built on Django to facilitate the registration a
 
 7. Access the application at `http://127.0.0.1:8000/`
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 ayush_portal/            # Main Django project
@@ -100,7 +119,7 @@ media/                   # User uploaded files
 └── documents/           # Uploaded application documents
 ```
 
-## User Journey
+## 👤 User Journey
 
 1. **Registration**: New users register with username, email, and password
 2. **Login**: Registered users log in to access the dashboard
@@ -108,7 +127,7 @@ media/                   # User uploaded files
 4. **Application Tracking**: Users monitor application status on the dashboard
 5. **Support**: Access to FAQ and support information
 
-## Administration
+## ⚙️ Administration
 
 Administrators can access the Django admin panel at `/admin` to:
 - Review submitted applications
@@ -116,7 +135,7 @@ Administrators can access the Django admin panel at `/admin` to:
 - Manage user accounts
 - Access uploaded documents
 
-## Customization
+## 🎨 Customization
 
 The portal can be customized in several ways:
 - Modify the `settings.py` file to change configuration
@@ -124,7 +143,7 @@ The portal can be customized in several ways:
 - Add or modify CSS in `static/css/style.css`
 - Extend functionality by adding new views and forms
 
-## Security Considerations
+## 🔒 Security Considerations
 
 - The project uses Django's built-in security features including CSRF protection
 - File uploads are validated for type and size
@@ -135,7 +154,11 @@ The portal can be customized in several ways:
   - Configure HTTPS
   - Use a production-grade database
 
-## Contributing
+### Version Control
+
+Our team uses Git for version control. All code changes are properly committed with descriptive messages.
+
+## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -145,39 +168,20 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Contact
+## 📞 Contact
 
 Project Link: [https://github.com/Rohith-CodeSage/SRU_HACKATHON](https://github.com/Rohith-CodeSage/SRU_HACKATHON)
 
----
-
-
-
-## About Our Team
-
-We are a group of dedicated students/professionals collaborating on projects together. Each member brings unique skills and perspectives to the team.
-
-## Contact Information
-
 For inquiries related to our team or projects, please contact any of our team members using their ID numbers.
 
-## Project Guidelines
+## 📜 Code of Conduct
 
-- All team members are expected to contribute equally to projects
-- Regular meetings will be scheduled to discuss progress
-- Code and documentation should follow team standards
-- Issues should be reported immediately to the team leader
+We are committed to creating a positive and inclusive work environment. All team members treat each other with respect and professionalism.
 
-## Version Control
-
-Our team uses Git for version control. Please ensure all code changes are properly committed with descriptive messages.
-
-## Code of Conduct
-
-We are committed to creating a positive and inclusive work environment. All team members should treat each other with respect and professionalism.
+---
 
 Made with ❤️ for the AYUSH startup ecosystem
