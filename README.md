@@ -12,6 +12,11 @@
 | Rushindhra | 2303A52199 |
 | Ganesh | 2303A52356 |
 
+Demo
+Watch our project demonstration video to see the application in action:
+[Watch the Demo](https://github.com/Rohith-CodeSage/SRU_HACKATHON/blob/main/ROHITH_2198.mp4)
+
+
 A comprehensive web application built on Django to facilitate the registration and management of startups in the AYUSH (Ayurveda, Yoga & Naturopathy, Unani, Siddha, and Homoeopathy) sector. This portal streamlines the application process for entrepreneurs and provides a centralized platform for tracking applications.
 
 ![AYUSH Portal](https://via.placeholder.com/800x400?text=AYUSH+Portal)
