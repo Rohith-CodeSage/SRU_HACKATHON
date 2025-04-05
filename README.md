@@ -1,5 +1,17 @@
 # AYUSH Startup Registration Portal
 
+# Team Details
+
+## Team Members
+
+| Name | ID Number |
+|------|-----------|
+| Rohith | 2303A52198 |
+| Rithwik | 2303A52330 |
+| Sai Teja | 2303A52325 |
+| Rushindhra | 2303A52199 |
+| Ganesh | 2303A52356 |
+
 A comprehensive web application built on Django to facilitate the registration and management of startups in the AYUSH (Ayurveda, Yoga & Naturopathy, Unani, Siddha, and Homoeopathy) sector. This portal streamlines the application process for entrepreneurs and provides a centralized platform for tracking applications.
 
 ![AYUSH Portal](https://via.placeholder.com/800x400?text=AYUSH+Portal)
@@ -138,17 +150,7 @@ Project Link: [https://github.com/Rohith-CodeSage/SRU_HACKATHON](https://github.
 
 ---
 
-# Team Details
 
-## Team Members
-
-| Name | ID Number |
-|------|-----------|
-| Rohith | 2303A52198 |
-| Rithwik | 2303A52330 |
-| Sai Teja | 2303A52325 |
-| Rushindhra | 2303A52199 |
-| Ganesh | 2303A52356 |
 
 ## About Our Team
 
